@@ -1,41 +1,40 @@
 const std = @import("std");
-const Chameleon = @import("chameleon");
+const cham = @import("chameleon").initComptime();
 
 pub fn main() !void {
-    comptime var c = Chameleon.initComptime();
-    comptime var header = c.underline().bold().italic().blink().createPreset();
+    const header = comptime cham.underline().bold().italic().blink();
 
     std.debug.print("\t\t  {s}{s}{s}{s}{s}{s}{s}{s}{s}\n\n", .{
-        header.green().fmt("C"),
-        header.red().fmt("H"),
-        header.blue().fmt("A"),
-        header.magenta().fmt("M"),
-        header.yellow().fmt("E"),
-        header.green().fmt("L"),
-        header.yellow().fmt("E"),
-        header.cyan().fmt("O"),
-        header.magenta().fmt("N"),
+        comptime header.green().apply("C"),
+        comptime header.red().apply("H"),
+        comptime header.blue().apply("A"),
+        comptime header.magenta().apply("M"),
+        comptime header.yellow().apply("E"),
+        comptime header.green().apply("L"),
+        comptime header.yellow().apply("E"),
+        comptime header.cyan().apply("O"),
+        comptime header.magenta().apply("N"),
     });
     std.debug.print("{s} {s} {s} {s} {s} {s}\n{s} {s} {s} {s} {s} {s} {s} {s}\n{s} {s} {s} {s} {s} {s}\n", .{
-        c.bold().fmt("bold"),
-        c.dim().fmt("dim"),
-        c.italic().fmt("italic"),
-        c.underline().fmt("underline"),
-        c.inverse().fmt("inverse"),
-        c.strikethrough().fmt("strikethrough"),
-        c.red().fmt("red"),
-        c.green().fmt("green"),
-        c.yellow().fmt("yellow"),
-        c.blue().fmt("blue"),
-        c.magenta().fmt("magenta"),
-        c.cyan().fmt("cyan"),
-        c.white().fmt("white"),
-        c.gray().fmt("gray"),
-        c.bgRed().fmt("bgRed"),
-        c.bgGreen().fmt("bgGreen"),
-        c.bgYellow().fmt("bgYellow"),
-        c.bgBlue().fmt("bgBlue"),
-        c.bgMagenta().fmt("bgMagenta"),
-        c.bgCyan().fmt("bgCyan"),
+        comptime cham.bold().apply("bold"),
+        comptime cham.dim().apply("dim"),
+        comptime cham.italic().apply("italic"),
+        comptime cham.underline().apply("underline"),
+        comptime cham.inverse().apply("inverse"),
+        comptime cham.strikethrough().apply("strikethrough"),
+        comptime cham.red().apply("red"),
+        comptime cham.green().apply("green"),
+        comptime cham.yellow().apply("yellow"),
+        comptime cham.blue().apply("blue"),
+        comptime cham.magenta().apply("magenta"),
+        comptime cham.cyan().apply("cyan"),
+        comptime cham.white().apply("white"),
+        comptime cham.gray().apply("gray"),
+        comptime cham.bgRed().apply("bgRed"),
+        comptime cham.bgGreen().apply("bgGreen"),
+        comptime cham.bgYellow().apply("bgYellow"),
+        comptime cham.bgBlue().apply("bgBlue"),
+        comptime cham.bgMagenta().apply("bgMagenta"),
+        comptime cham.bgCyan().apply("bgCyan"),
     });
 }

@@ -1,16 +1,16 @@
 const std = @import("std");
-const ComptimeChameleon = @import("api/Comptime.zig");
-const RuntimeChameleon = @import("api/Runtime.zig");
+pub const ComptimeChameleon = @import("api/Comptime.zig");
+pub const RuntimeChameleon = @import("api/Runtime.zig");
 pub const HexColors = @import("colors.zig");
-
-pub fn initComptime() ComptimeChameleon {
-    return .{};
-}
 
 const Config = struct {
     allocator: std.mem.Allocator,
     detect_no_color: bool = true,
 };
+
+pub fn initComptime() ComptimeChameleon {
+    return .{};
+}
 
 pub fn initRuntime(config: Config) RuntimeChameleon {
     return .{
